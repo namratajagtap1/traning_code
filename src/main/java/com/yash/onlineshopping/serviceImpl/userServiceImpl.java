@@ -28,12 +28,12 @@ public class userServiceImpl implements UserService {
 	private RoleRepository roleRepository;
 
 	@Override
-	public User createUser(User user, Set<UserRole> userRoles) throws Exception {
+	public User createUser(User user, Set<UserRole> userRoles) throws UserFoundException {
 		User presentUser = this.userRepository.findByuserName(user.getUserName());
 
 		if (presentUser != null) {
 			System.out.println("User is already present");
-			throw new Exception("User Already present");
+			throw new UserFoundException();
 		} else {
 
 			for (UserRole urole : userRoles) {

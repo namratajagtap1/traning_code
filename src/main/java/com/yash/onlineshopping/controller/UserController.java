@@ -7,9 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import com.yash.onlineshopping.model.Role;
 import com.yash.onlineshopping.model.User;
 import com.yash.onlineshopping.model.UserRole;
 import com.yash.onlineshopping.service.UserService;
+import com.yash.onlineshopping.serviceImpl.UserFoundException;
 
 /**
  * @author namrata.jagtap
@@ -79,4 +81,6 @@ public class UserController {
 	public void deleteUser(@PathVariable("id") Long userId) {
 		 userService.deleteUser(userId);
 	}
+	
+	
 }
